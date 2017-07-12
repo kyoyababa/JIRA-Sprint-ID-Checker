@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "JIRA Sprint ID Checker",
+  "description": "Somewhy we have to use SprintID for Sprint Bulk Change on JIRA. This extension supports your SprintID check process.",
+  "version": "1.0.0",
+  "icons": {},
+  "background": {
+    "scripts": [
+      "assets/scripts/jira-sprint-id-checker__background.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": {},
+    "default_title": "JIRA Sprint ID Checker"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.atlassian.net/secure/RapidBoard.jspa*"],
+      "js": ["assets/scripts/jira-sprint-id-checker__content.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ]
+}
