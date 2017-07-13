@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "JIRA Sprint ID Checker",
   "description": "Somewhy we have to use SprintID for Sprint Bulk Change on JIRA. This extension supports your SprintID check process.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icons": {},
   "background": {
     "scripts": [

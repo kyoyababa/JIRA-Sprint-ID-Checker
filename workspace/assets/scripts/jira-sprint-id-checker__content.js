@@ -2,13 +2,20 @@
 
 const $ = require('jquery');
 
-chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+$(document).ready(() => {
+  // ページロードの度にbackgroundに状態を確認
+  chrome.runtime.sendMessage({cmd: 'isTranslate'}, function(isTranslate) {
+    if (isTranslate) {
+      onInit();
+    }
+  });
+
   function onInit() {
-    checkJiraSprintID();
+    showJiraSprintID();
   }
 
-  function checkJiraSprintID() {
-    // Sample
+  function showJiraSprintID() {
+    // Sample DOM
     // <div data-sprint-id="710" class="ghx-backlog-container ghx-sprint-active js-sprint-container ghx-closed ui-droppable">
     const $targetElement = $('.js-sprint-container');
 
@@ -65,6 +72,4 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
       });
     }
   }
-
-  onInit();
 });
